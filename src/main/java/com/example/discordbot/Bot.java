@@ -4,6 +4,7 @@ import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
 import org.javacord.api.entity.intent.Intent;
 
+import java.io.File;
 import java.util.Random;
 
 public class Bot {
@@ -17,10 +18,17 @@ public class Bot {
                 .login().join();
 
         api.addMessageCreateListener(event -> {
+
             if (event.getMessageContent().equalsIgnoreCase("!SYT")) { //upper/lower case is ignored
                 Random rndm = new Random();
                 int index = rndm.nextInt(sentences.length); //nextInt generates random integer
                 event.getChannel().sendMessage(sentences[index]); //getChannel gives the channel where msg was sent
+            }
+            if(event.getMessageContent().equalsIgnoreCase("!SECRET")){
+                File mp3 = new File("src/main/resources/audio/schweiger.mp3");
+                event.getChannel().sendMessage(mp3);
+                //implement tomorrow random img send by creating a Random object, storing the names of the files in an array
+                //Note: don't forget that you can add with '+' something to strings my G
             }
         });
     }
