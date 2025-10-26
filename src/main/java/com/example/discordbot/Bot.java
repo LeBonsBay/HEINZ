@@ -1,10 +1,12 @@
 package com.example.discordbot;
 
+import com.example.discordbot.commands.DateMessage;
 import com.example.discordbot.listeners.MessageListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
 import org.javacord.api.entity.intent.Intent;
+import org.javacord.api.entity.user.UserStatus;
 
 public class Bot {
     public static void main(String[] args) {
@@ -17,6 +19,9 @@ public class Bot {
                 .login()
                 .join();
 
+        DateMessage dateMessage = new DateMessage(api); //sendThing() is called after creation of the Object
+
+        api.updateActivity("letto.htl-steyr.ac.at");
         api.addMessageCreateListener(new MessageListener()); // Here is the message listener for commands btw
         System.out.println("Bot is running: " + api.createBotInvite());
     }
