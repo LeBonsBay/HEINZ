@@ -13,19 +13,21 @@ import java.util.List;
 import java.util.Random;
 
 public class AcdcCommand implements Command {
-    Random rando = new Random();
     String link = "";
     private  final List<String> videos = new LinkedList<>();
 
     public String sendMessage(){
         Random randomID = new Random();
-        String link = "";
+
         try {
+
             YouTubeAPI ytAPI = new YouTubeAPI();
+
             YoutubeData youtubeData = ytAPI.ytData();
 
             for (Item item : youtubeData.getItems()) {
                 String videoId = item.getId().getVideoId();
+
 
                 if(videoId != null && !videoId.isEmpty()){
                     link = "https://www.youtube.com/watch?v=" + videoId; //builds the video url

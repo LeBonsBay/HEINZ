@@ -26,8 +26,6 @@ public class Bot {
         //sendScaryMessage() is called after creation of the Object
         DateMessage dateMessage = new DateMessage(api);
 
-        api.updateActivity("letto.htl-steyr.ac.at");
-
         api.addMessageCreateListener(new MessageListener()); // Here is the message listener for commands btw
         System.out.println("Bot is running: " + api.createBotInvite());
     }
