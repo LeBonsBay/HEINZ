@@ -11,10 +11,10 @@ public class MessageListener implements MessageCreateListener {
     private final Map<String, Command> commands = new HashMap<>();
 
     public MessageListener(){
-        commands.put("!syt", new SYTCommand());
-        commands.put("!secret", new SecretCommand());
-        commands.put("!img", new ImgCommand());
-        commands.put("!acdc", new AcdcCommand());
+        commands.put("/syt", new SYTCommand());
+        commands.put("/secret", new SecretCommand());
+        commands.put("/img", new ImgCommand());
+        commands.put("/acdc", new AcdcCommand());
     }
 
     @Override
