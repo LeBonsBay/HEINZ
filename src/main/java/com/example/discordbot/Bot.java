@@ -1,6 +1,7 @@
 package com.example.discordbot;
 
 import com.example.discordbot.commands.DateMessage;
+import com.example.discordbot.commands.JoinCommand;
 import com.example.discordbot.listeners.MessageListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.javacord.api.DiscordApi;
@@ -25,8 +26,9 @@ public class Bot {
 
         //sendScaryMessage() is called after creation of the Object
         DateMessage dateMessage = new DateMessage(api);
+        JoinCommand joinCommand = new JoinCommand(api);
 
-        api.addMessageCreateListener(new MessageListener()); // Here is the message listener for commands btw
+        api.addMessageCreateListener(new MessageListener(api)); // Here is the message listener for commands btw
         System.out.println("Bot is running: " + api.createBotInvite());
     }
 }
