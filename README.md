@@ -9,6 +9,7 @@ $HEINZ is a simple discord bot made with the <a href="https://github.com/Javacor
 - `$syt` => sends a random HEINZ sentence
 - `$secret` => sends an interesting HEINZ audio file
 - `$acdc` => sends a random acdc youtube video
+- `$join` => bot joins the voice channel of the user who invoked the command.
 - `at a scheduled time, the bot sends a message that would scare any student of $HEINZ`
 
 > [!NOTE]
