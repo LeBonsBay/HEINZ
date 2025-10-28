@@ -18,6 +18,7 @@ public class MessageListener implements MessageCreateListener {
         commands.put("$img", new ImgCommand());
         commands.put("$acdc", new AcdcCommand());
         commands.put("$join", new JoinCommand(api));
+        commands.put("$disconnect",new JoinCommand(api));
     }
 
     @Override
