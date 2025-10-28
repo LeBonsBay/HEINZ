@@ -17,13 +17,15 @@ import java.util.concurrent.TimeUnit;
 public class DateMessage {
 
     private String msg;
+
+    // Creates a thread pool with one thread, which can run scheduled tasks periodically or after a delay.
     private final ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
 
     private final DiscordApi api;
 
     public DateMessage(DiscordApi api) {
         this.api = api;
-        sendScaryMessage(); // Scheduler direkt starten
+        sendScaryMessage(); //starts the method when the object is created...
     }
 
     public String getMsg() {
@@ -36,13 +38,16 @@ public class DateMessage {
 
     public void sendScaryMessage() {
 
-        Runnable runnable = () -> { // = new Runnable() ..., anonymous call with lambda
+        // this is the code that gets executed in an interval
+        Runnable runnable = () -> {
 
             LocalDate localDate = LocalDate.now();
             LocalTime time = LocalTime.now();
             if (msg == null && localDate.getDayOfWeek() == DayOfWeek.FRIDAY && time.getHour() == 8 && time.getMinute() == 0) {
 
                 setMsg("Hefte zua, freiwillige hervor");
+
+                //here the channel is defined that should get the message. Normal event.getChannel()... doesn't work because we don't use a command for this feature
                 ServerTextChannel textChannel = api.getServerTextChannelById("1409623454344282166").orElse(null);
 
                 if (getMsg() != null && textChannel != null) {
@@ -50,6 +55,6 @@ public class DateMessage {
                 }
             }
         };
-        executorService.scheduleAtFixedRate(runnable, 0, 60, TimeUnit.SECONDS);
+        executorService.scheduleAtFixedRate(runnable, 0, 60, TimeUnit.SECONDS); //every 60 seconds the code gets run anew
     }
 }
