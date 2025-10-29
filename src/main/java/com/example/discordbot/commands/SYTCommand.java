@@ -9,7 +9,8 @@ public class SYTCommand implements Command {
             "Hefte zu",
             "Freiwillige hervor",
             "Frankfurter",
-            "Is des Unix based :face_with_raised_eyebrow:"
+            "Is des Unix based :face_with_raised_eyebrow:",
+            "Saufst du heimlich oder unheimlich?",
     };
 
     @Override
