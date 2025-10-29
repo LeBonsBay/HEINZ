@@ -1,6 +1,6 @@
 # HEINZ($HEINZ)
 
-$HEINZ is a simple discord bot made with the <a href="https://github.com/Javacord/Javacord">Javacord</a> library. The project is inspired by a specific individual. This project is 
+$HEINZ is a simple discord bot made with the <a href="https://github.com/Javacord/Javacord">Javacord</a> library. The project is inspired by a specific individual. 
 
 
 # `Features` :joystick: 
